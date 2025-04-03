@@ -1,8 +1,6 @@
-
-
 from pathlib import Path
+import os
 from dotenv import load_dotenv
-
 load_dotenv()
 
 AMADEUS_API_KEY = os.getenv("AMADEUS_API_KEY")
@@ -68,16 +66,10 @@ TEMPLATES = [
 WSGI_APPLICATION = 'Trivo.wsgi.application'
 
 
-# Database
-# https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'mydatabase',
-        'USER': 'myuser',
-        'PASSWORD': 'mypassword',
-        'HOST': 'localhost',
-        'PORT': '5432',
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',  # This will create a file named db.sqlite3 in your project directory
     }
 }
 
